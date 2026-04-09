@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Pendaftaran Siswa</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffc0cb, #ff69b4);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: #fff0f5;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff1493;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #c71585;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            background: #ff69b4;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff1493;
+        }
+
+        .kotak2 {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffe4e1;
+            border-radius: 10px;
+            color: #c71585;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Formulir Pendaftaran Siswa</h1>
+
+    <label>Nama lengkap*</label>
+    <input type="text" id="name" placeholder="Contoh: Muhammad Raihan">
+
+    <label>Kelas*</label>
+    <input type="text" id="kelas" placeholder="Contoh: XII IPA 2">
+
+    <label>Pilih Ekstrakurikuler</label>
+    <label><input type="radio" name="ekstra" value="Basket">Basket</label>
+    <label><input type="radio" name="ekstra" value="Futsal">Futsal</label>
+    <label><input type="radio" name="ekstra" value="Paduan Suara">Paduan Suara</label>
+
+    <label>Pilih Jadwal Belajar</label>
+    <label><input type="radio" name="jadwal" value="Pagi">Pagi (07.00-12.00)</label>
+    <label><input type="radio" name="jadwal" value="Siang">Siang (12.30-17.00)</label>
+    <label><input type="radio" name="jadwal" value="Sore">Sore (17.30-20.30)</label>
+    <label><input type="radio" name="jadwal" value="Campuran">Campuran</label>
+
+    <button onclick="tampilData()">Show Your Data</button>
+
+    <div class="kotak2" id="hasil">
+        Data Anda akan ditampilkan di sini...
+    </div>
+</div>
+
+<script>
+function tampilData() {
+    let nama = document.getElementById("name").value;
+    let kelas = document.getElementById("kelas").value;
+
+    let ekstra = document.querySelector('input[name="ekstra"]:checked');
+    let jadwal = document.querySelector('input[name="jadwal"]:checked');
+
+    document.getElementById("hasil").innerHTML =
+        "<b>Nama:</b> " + nama + "<br>" +
+        "<b>Kelas:</b> " + kelas + "<br>" +
+        "<b>Ekstrakurikuler:</b> " + (ekstra ? ekstra.value : "-") + "<br>" +
+        "<b>Jadwal:</b> " + (jadwal ? jadwal.value : "-");
+}
+</script>
+
+</body>
+</html>
